@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head> 
+	<body>
+		<span>This is a span</span>
+		<p>Paragraph</p>
+		<script>
+			$(document).ready(function(){
+    			$("#length, #width").keyup(function(){
+        			document.getElementById("area").innerHTML = 
+					document.getElementById("length").value * document.getElementById("width").value;
+    			});
+			});
+
+			// if any span is clicked, all elements become hidden
+			$("span").click(function(){
+				$("*").hide();
+			});
+
+
+
+			//make 2 input boxes, for Fahrnheit and Celsius, and code the jquery to convert the value. 
+			$(document).ready(function(){
+    			$("#Fahr").keyup(function(){
+        			document.getElementById("Cels").innerHTML = 
+					(document.getElementById("Fahr").value - 32) / 1.8;
+    			});
+			});
+
+			$(document).ready(function(){
+    			$("#Cels").keyup(function(){
+        			document.getElementById("Fahr").innerHTML = 
+					document.getElementById("Cels").value * 1.8 + 32;
+    			});
+			});
+	
+		</script>
+		<p>Another paragraph</p>
+		<input type="text" id="input1"/>
+		<input type="text" id="length"/>
+		<input type="text" id="width"/>
+		<span id="area"> Not set</span>
+<br />
+<br />
+
+
+		Enter Fahrenheit value  <input type="text" id="Fahr"/>
+		<br />
+		Enter Celsius value  <input type="text" id="Cels"/>
+	</body>
+</html>

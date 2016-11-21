@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+	
+	Fahrenheit: <input type="text" id="Fahr" />
+	<br />
+	Celsius: <input type="text" id="Cels" />
+	<br />
+	
+	<script>
+
+		// in-class assignment: make 2 input boxes, one for fahrenheit and the other for celsius and code the jquery to convert the value entered into the fahrenheit box into celsius, and vice versa
+
+		$(document).ready(function(){
+
+			$("#Fahr").keyup(function(){
+				document.getElementById("Cels").value = (document.getElementById("Fahr").value - 32) / 1.8;
+			});
+			$("#Cels").keyup(function(){
+				document.getElementById("Fahr").value = document.getElementById("Cels").value * 1.8 + 32;
+			});
+			
+		});
+				
+	</script>
+	
+</body>
+
+</html>
+
