@@ -26,6 +26,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<link rel="stylesheet" href="../../jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+	
+    <!-- moved script tags from here to bottom of body section -->
+	
+	<!-- Yahoo API weather-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="weather.js"></script>
+	<style type="text/css">
+	#found { display: none; }	
+	#error { color: red; display: none; }
+	</style>
+
 
 </head>
 
@@ -129,21 +142,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div class="fill" style="background-image:url('https://www.maldivesholidayoffers.com/assets/resorts/65701-amaya-food-gallery-2.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2>Airy Restaurant</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="fill" style="background-image:url('https://www.latableprovencale.com/wp-content/uploads/2016/05/table-slide.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2>Wide Variety</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="fill" style="background-image:url('https://www.telegraafhotel.com/wp-content/uploads/2016/05/telegraaf-terrace5.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    <h2>Outdoor Space</h2>
                 </div>
             </div>
         </div>
@@ -167,24 +180,66 @@
                     Welcome to Modern Business
                 </h1>
             </div>
-            <div class="col-md-4">
+			
+			<div>
+				<!--
+				<div id='chartContainer' style="width:100%; height:500px;">
+				</div>
+				-->
+			</div> <!-- gpcorser-->
+
+			
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4>
                     </div>
                     <div class="panel-body">
+						<div id='chartContainer' style="width:100%; height:300px;">
+						</div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
                         <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
+			
+			<div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> This is the new one</h4>
+                    </div>
+                    <div class="panel-body">
+						
+                        
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+			
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+                        <h4><i class="fa fa-cloud"></i> Free &amp; Open Source</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+			
+						<div id="find">
+							<div class="form-group">
+								<input type="edit" placeholder="Location" id="loc">
+								<button class="btn btn-default" onclick="getWeather();">Find</button>
+							</div>
+						</div>
+					
+						<div id="found">
+							<p><span id="location"></span></p>
+							<p><span id="cond"></span> &amp; <span id="temp"></span>&deg;</p>
+							<small><em><a href="javascript:showSearch();">&larr; change location</a></em></small>
+						</div>
+						
+						<div id="error">
+							<p>Location not found</p>
+						</div>
+					
                         <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
@@ -195,6 +250,9 @@
                         <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
                     </div>
                     <div class="panel-body">
+					
+						<iframe src="http://wheeldecide.com/e.php?c1=red&c2=blue&c3=yellow&c4=orange&c5=purple&c6=green&t=colors&time=5" width="100%"  scrolling="no" frameborder="0"></iframe>
+					
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
                         <a href="#" class="btn btn-default">Learn More</a>
                     </div>
@@ -206,36 +264,36 @@
         <!-- Portfolio Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Portfolio Heading</h2>
+                <h2 class="page-header">Delicious Meals and Treats</h2>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="http://theblondcook.com/wp-content/uploads/2014/12/eggnog-french-toast-1.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="http://www.tarongacentre.com.au/wp-content/uploads/2016/06/Food-DessertCups-700x450px.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="http://thepeakmagazine.com.sg/wp-content/uploads/2015/10/IMAGE-6.png" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="https://s-media-cache-ak0.pinimg.com/originals/24/bf/dd/24bfdd888aeba8ba33114783af18aee4.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="http://hotelsdave.com/wp-content/uploads/2016/09/Crepes-Paris-1.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="http://toptours.info/w/r11/files/salo3.jpg" alt="">
                 </a>
             </div>
         </div>
@@ -260,7 +318,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+                <img class="img-responsive" src="http://www.partstown.com/about-us/wp-content/uploads/2014/09/shutterstock_159290720-700x450.jpg" alt="">
             </div>
         </div>
         <!-- /.row -->
@@ -305,7 +363,91 @@
         interval: 5000 //changes the speed
     })
     </script>
+	
+	
+	<script src="js/jquery.js"></script> <!-- gpcorser -->
+	<!--
+    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
+    -->
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxchart.core.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // prepare chart data as an array            
+            var source =
+            {
+                datatype: "csv",
+                datafields: [
+                    { name: 'Country' },
+                    { name: 'GDP' },
+                    { name: 'DebtPercent' },
+                    { name: 'Debt' }
+                ],
+                url: 'gdp_dept_2010.txt'
+            };
+
+            var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
+
+            // prepare jqxChart settings
+            var settings = {
+                title: "Economic comparison",
+                description: "GDP and Debt in 2010",
+                showLegend: true,
+                enableAnimations: true,
+                padding: { left: 5, top: 5, right: 5, bottom: 5 },
+                titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                source: dataAdapter,
+                xAxis:
+                    {
+                        dataField: 'Country',
+                        gridLines: { visible: true },
+                        valuesOnTicks: false
+                    },
+                colorScheme: 'scheme01',
+                columnSeriesOverlap: false,
+                seriesGroups:
+                    [
+                        {
+                            type: 'column',
+                            valueAxis:
+                            {
+                                visible: true,
+                                unitInterval: 5000,
+                                title: { text: 'GDP & Debt per Capita($)<br>' }
+                            },
+                            series: [
+                                    { dataField: 'GDP', displayText: 'GDP per Capita' },
+                                    { dataField: 'Debt', displayText: 'Debt per Capita' }
+                                ]
+                        },
+                        {
+                            type: 'line',
+                            valueAxis:
+                            {
+                                visible: true,
+                                position: 'right',
+                                unitInterval: 10,
+                                title: { text: 'Debt (% of GDP)' },
+                                gridLines: { visible: false },
+                                labels: { horizontalAlignment: 'left' }
+                            },
+                            series: [
+                                    { dataField: 'DebtPercent', displayText: 'Debt (% of GDP)' }
+                                ]
+                        }
+
+                    ]
+            };
+
+            // setup the chart
+            $('#chartContainer').jqxChart(settings);
+
+        });
+    </script>
 
 </body>
 
 </html>
+
