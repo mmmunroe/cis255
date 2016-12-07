@@ -1,22 +1,30 @@
 <!doctype html>
-
-<!-- Define the ng-app parameter in the root element so AngularJS
-knows where to begin compiling. app1 is the module name and is referenced
-in the JS file we will create -->
-
-<!-- ng-init is a directive that initializes application data by assigning
-variable values -->
-<html ng-app="app1" ng-init="person = {fName: 'Derek', lName: 'Banas'};
-  capitals = [{city: 'Montgomery', state: 'Alabama'}, {city: 'Juneau', state: 'Alaska'}, {city: 'Phoenix', state: 'Arizona'}]; colors = [ {color: 'red'}, {color: 'green'}, {color: 'blue'}, {color: 'yellow'}, {color: 'orange'}, {color: 'purple'} ]">
+<!-- 
+This app displays course title and course description when the user enters the course prefix and course number 
+In the html tag, ng-init attribute, we assign values for data elements
+-->
+<html ng-app="app1" ng-init="initialize();">
   <head>
     <title>AngularJS Tutorial</title>
   </head>
   <body>
 
-    <!-- Adds a controller that the Angular module will control.
-    The view is the div element and all that it contains. The $scope
-    component is used to provide data to the view. -->
     <div ng-controller="ctrl1">
+	
+	    <p>Enter Course Prefix and Number:</p>
+	
+	    Prefix:
+	    <input type="text" ng-bind="inputPrefix" ng-model="p" /><br />
+		Number:
+        <input type="text" ng-bind="inputNumber" ng-model="c" /><br /><br />
+	
+	    <button ng-click="getTitleAndDescription()">Get Course Title and Description</button><br /><br />
+		
+		{{title}}<br />{{description}}
+		
+		
+		<br /><br /><br /><br /><br /><br />
+	
       <span>Values:</span>
 
       <!-- Define 2 elements that will be bound to the first and

@@ -1,56 +1,52 @@
-/*
----------- Components of an AngularJS Application ----------
 
-AngularJS provides a front end framework based on the MVC model. It is built on top of JavaScript and JQuery. With MVC the Model represents the data source, the View is the rendered page, and the Controller handles communication between both of them. By structuring your page this way your code is easier to maintain, easier to update and makes for more readable code.
-
-AngularJS uses modules which represent the components used in your application. Using modules makes it easy to reuse your code in many applications.
-
-Web pages are normally manipulated by working with the DOM object in JavaScript and JQuery. AngularJS allows you to extend HTML tags and attributes using AngularJS directives which make it easy to bind data directly to HTML elements.
-
-AngularJS uses JavaScript objects to represent data called Scope which can be data generated on the web server, a database, web service, or client side AngularJS code.
-
-You can use expressions that are directly linked to the scope (data) so that the page is updated dynamically as the data changes. Data binding works as well so that when data changes on the web page the model is also updated.
-
-Many services are provided for common tasks like using AJAX techniques to dynamically pull data from a web service or the server.
-*/
-
-// Here we implement the template, module, controller and scope
-
-// Define the AngularJS Module
-// Modules are used to
-// 1. Associate an AngularJS app with part of an HTML document
-// 2. Provide access to AngularJS features
-// 3. Help with organization
-// angular.module() excepts the module name, list of modules this module
-// needs and an optional configuration for the module. Modules that work with
-// HTML normally have a name that contains app.
 var app1 = angular.module('app1', []);
 
-// Define the Controller and implement the Scope which links HTML
-// elements to variables in the Scope. It receives the controller
-// name and a factory function which gets the controller ready to use
-// We are saying that $scope is a dependency and that we want Angular
-// to pass in the $scope object when the function is called. This is
-// an example of dependency injection. Angular sees that my factory
-// function contains the $scope component and then it gets it and passes
-// it to the function automatically.
 app1.controller('ctrl1', function($scope) {
+
+  $scope.courses = [{"academicLevel":"UG","capacity":"30","comments":[],"courseNumber":"254","credit":"4","description":"This course focuses on web design and the client side of web application development. Topics include XHTML, Cascading Style Sheets (CSS), the Document Object Model, creating dynamic content and architecture, and building\/deploying web pages and web sites. A large portion of the class is spent on examining the ECMA\/JavaScript client side scripting language. Current topics of interest such as Web 2.0 and AJAX are explored. An introduction to using both commercial and open source web development tools is also provided.","instructors":[{"username":"gpcorser","name":"G. Corser"}],"lineNumber":"0050","location":"UC","meetingTimes":[{"method":"LEC","building":"SE","room":"135","days":"TR","startTime":"08:00 AM","endTime":"12:10 PM","instructor":"gpcorser"}],"prefix":"CIS","prerequisites":"CS 116 (Previous, Required)  ","seatsAvailable":"10","section":"11","status":"Open","term":"16\/SP","title":"Client Side Web Appl Devel 0"},
+  {"academicLevel":"UG","capacity":"16","comments":[],"courseNumber":"255","credit":"3","description":"General methods of problem solving, modeling, and simulation using specialized electrical engineering software such as MATLAB\/Simulink, LabVIEW, and Multisim.  Applications will be drawn from digital and analog electrical systems. Course includes a computational laboratory to implement topics covered in lectures.","instructors":[{"username":"rmuralee","name":"R. Muraleedharan Sreekumarid"},{"username":"rmuralee","name":"R. Muraleedharan Sreekumarid"}],"lineNumber":"1072","location":"UC","meetingTimes":[{"method":"LEC","building":"P","room":"241","days":"MW","startTime":"11:30 AM","endTime":"01:20 PM","instructor":"rmuralee"},{"method":"LAB","building":"P","room":"241","days":"MW","startTime":"01:30 PM","endTime":"04:20 PM","instructor":"rmuralee"}],"prefix":"ECE","prerequisites":"ECE 216, ECE 235 (Previous, Required)  ","seatsAvailable":"0","section":"31","status":"Clsd","term":"16\/SU","title":"EE Computer Methods"},
+  {"academicLevel":"UG","capacity":"30","comments":[],"courseNumber":"255","credit":"4","description":"This course focuses on web design and the client side of web application development. Topics include XHTML, Cascading Style Sheets (CSS), the Document Object Model, creating dynamic content and architecture, and building\/deploying web pages and web sites. A large portion of the class is spent on examining the ECMA\/JavaScript client side scripting language. Current topics of interest such as Web 2.0 and AJAX are explored. An introduction to using both commercial and open source web development tools is also provided.","instructors":[{"username":"gpcorser","name":"G. Corser"}],"lineNumber":"0482","location":"UC","meetingTimes":[{"method":"LEC","building":"SE","room":"135","days":"M","startTime":"12:30 PM","endTime":"02:20 PM","instructor":"gpcorser"},{"method":"LEC","building":"W","room":"226","days":"W","startTime":"12:30 PM","endTime":"02:20 PM"},{"method":"FNL","building":"SE","room":"135","days":"M","startTime":"12:30 PM","endTime":"02:20 PM"}],"prefix":"CIS","prerequisites":"CS 116 (Previous, Required)  ","seatsAvailable":"3","section":"01","status":"Open","term":"16\/FA","title":"Client Side Web Appl Devel 2"},
+  {"academicLevel":"UG","capacity":"30","comments":[],"courseNumber":"256","credit":"4","description":"This course focuses on web design and the client side of web application development. Topics include XHTML, Cascading Style Sheets (CSS), the Document Object Model, creating dynamic content and architecture, and building\/deploying web pages and web sites. A large portion of the class is spent on examining the ECMA\/JavaScript client side scripting language. Current topics of interest such as Web 2.0 and AJAX are explored. An introduction to using both commercial and open source web development tools is also provided.","instructors":[{"username":"gpcorser","name":"G. Corser"}],"lineNumber":"0483","location":"ONL","meetingTimes":[{"method":"ONL","instructor":"gpcorser"}],"prefix":"CIS","prerequisites":"CS 116 (Previous, Required)  ","seatsAvailable":"16","section":"90","status":"Open","term":"16\/FA","title":"Client Side Web Appl Devel 3"},
+  {"academicLevel":"UG","capacity":"16","comments":[],"courseNumber":"255","credit":"3","description":"General methods of problem solving, modeling, and simulation using specialized electrical engineering software such as MATLAB\/Simulink, LabVIEW, and Multisim.  Applications will be drawn from digital and analog electrical systems. Course includes a computational laboratory to implement topics covered in lectures.","instructors":[{"username":"oktosh","name":"O. Tosh"},{"username":"oktosh","name":"O. Tosh"}],"lineNumber":"0778","location":"UC","meetingTimes":[{"method":"LEC","building":"P","room":"241","days":"MW","startTime":"01:30 PM","endTime":"02:20 PM","instructor":"oktosh"},{"method":"LAB","building":"P","room":"241","days":"M","startTime":"02:30 PM","endTime":"05:20 PM","instructor":"oktosh"}],"prefix":"ECE","prerequisites":"ECE 216, ECE 235 (Previous, Required)  ","seatsAvailable":"0","section":"01","status":"Clsd","term":"16\/FA","title":"EE Computer Methods"}];
+  
+  $scope.getTitleAndDescription = function() {
+  
+    // find the array element that matches the user input
+	var arrayElement = -1; 
+	for(var i=0; i < $scope.courses.length; i++) {
+	    if($scope.courses[i].prefix == $scope.p &&
+		   $scope.courses[i].courseNumber == $scope.c) {
+		   $scope.title = $scope.courses[i].title;
+		   $scope.description = $scope.courses[i].description;
+		   arrayElement = i;
+		}
+	}
+    if(arrayElement == -1) {
+	    $scope.title = "No course with prefix/number entered.";
+		$scope.description = "";
+	}
+
+  }; // end getTitleAndDescription
 
   // Define initial values
   $scope.first = 1;
   $scope.second = 1;
+  
   $scope.celsius = -40;
   $scope.fahrenheit = -40;
 
-  // Change the value for calculation when the button is clicked
-  // I used a shortcut using the unary plus operator to convert
-  // the string number values which are then added
   $scope.updateValue = function() {
     $scope.calculation = $scope.first + ' + ' + $scope.second +
       " = " + (+$scope.first + +$scope.second);
   };
-
+  
   $scope.updateTemp = function() {
-	$scope.tempF = 
+    $scope.C2F = $scope.celsius + ' Celsius is ' + ($scope.celsius  * 1.8 + 32) + ' Fahrenheit';
   };
+  
+  
+  
+  
+  
+  
 });

@@ -30,6 +30,15 @@
 	<link rel="stylesheet" href="../../jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
 	
     <!-- moved script tags from here to bottom of body section -->
+
+	<!-- add the jQuery script -->
+    <script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>	
+    <!-- add the jQWidgets framework -->
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <!-- add one or more widgets -->
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <!-- add the jQWidgets base styles and one of the theme stylesheets -->
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
 	
 	<!-- Yahoo API weather-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -38,7 +47,6 @@
 	#found { display: none; }	
 	#error { color: red; display: none; }
 	</style>
-
 
 </head>
 
@@ -181,20 +189,14 @@
                 </h1>
             </div>
 			
-			<div>
-				<!--
-				<div id='chartContainer' style="width:100%; height:500px;">
-				</div>
-				-->
-			</div> <!-- gpcorser-->
-
-			
-            <div class="col-md-8">
+			<div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4>
+                        <h4><i class="fa fa-fw fa-check"></i> Economic Chart </h4>
                     </div>
                     <div class="panel-body">
+						
+						
 						<div id='chartContainer' style="width:100%; height:300px;">
 						</div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
@@ -203,23 +205,27 @@
                 </div>
             </div>
 			
-			<div class="col-md-4">
+			 <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> This is the new one</h4>
+                        <h4><i class="fa fa-fw fa-compass"></i> Restaurant Rating</h4>
                     </div>
                     <div class="panel-body">
-						
-                        
-                        <a href="#" class="btn btn-default">Learn More</a>
+					
+						<div id='jqxWidget' style="font-size: 13px; font-family: Verdana;">
+        					<div id='jqxRating'></div>
+        					<div style='margin-top:10px;'>
+           					<div style='float: left;'>Rating:</div> <div style='float: left;' id='rate'></div>
+        				</div>
+					
                     </div>
                 </div>
             </div>
 			
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-cloud"></i> Free &amp; Open Source</h4>
+                        <h4><i class="fa fa-cloud"></i> Weather</h4>
                     </div>
                     <div class="panel-body">
 			
@@ -244,21 +250,32 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                        <h4><i class="fa fa-fw fa-compass"></i> Wheel of Fortune</h4>
                     </div>
                     <div class="panel-body">
 					
 						<iframe src="http://wheeldecide.com/e.php?c1=red&c2=blue&c3=yellow&c4=orange&c5=purple&c6=green&t=colors&time=5" width="100%"  scrolling="no" frameborder="0"></iframe>
 					
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
+		
+		<div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> Here are our Most Popular Tags</h4>
+                    </div>
+                    <div class="panel-body" >
+						<div id="tagCloud" ></div>
+                        
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
         <!-- /.row -->
 
         <!-- Portfolio Section -->
@@ -366,14 +383,25 @@
 	
 	
 	<script src="js/jquery.js"></script> <!-- gpcorser -->
-	<!--
-    <script type="text/javascript" src="../../scripts/jquery-1.11.1.min.js"></script>
-    -->
+
+    <script type="text/javascript" src="../../jqwidgets/scripts/jquery-1.11.1.min.js"></script>
+   
     <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxdraw.js"></script>
     <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxchart.core.js"></script>
     <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxdata.js"></script>
-    <script type="text/javascript">
+    
+	
+    
+    
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxtagcloud.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/scripts/demos.js"></script>
+	
+	
+    
+    <script type="text/javascript" src="../../jqwidgets/jqwidgets/jqxrating.js"></script>
+	
+	<script type="text/javascript">
         $(document).ready(function () {
             // prepare chart data as an array            
             var source =
@@ -444,6 +472,55 @@
             // setup the chart
             $('#chartContainer').jqxChart(settings);
 
+        });
+    </script>
+
+	<title id='Description'>TagCloud populate from array</title>
+    <link rel="stylesheet" href="../../jqwidgets/jqwidgets/styles/jqx.base.css" />
+    
+    <script>
+        $(document).ready(function () {
+            var data = [
+                { countryName: "Australia", technologyRating: 35 },
+                { countryName: "United States", technologyRating: 60 },
+                { countryName: "Germany", technologyRating: 55 },
+                { countryName: "Brasil", technologyRating: 20 },
+                { countryName: "United Kingdom", technologyRating: 50 },
+                { countryName: "Japan", technologyRating: 80 }
+            ];
+            var source =
+            {
+                localdata: data,
+                datatype: "array",
+                datafields: [
+                    { name: 'countryName' },
+                    { name: 'technologyRating' }
+                ]
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source, {});
+            $('#tagCloud').jqxTagCloud({
+                width: '600px',
+                source: dataAdapter,
+                displayMember: 'countryName',
+                valueMember: 'technologyRating'
+            });
+        });
+    </script>
+
+	<meta name="keywords" content="jQuery Rating, jqxRating, Rating Widget" /> 
+    <meta name="description" content="The jqxRating control represents a widget that allows you to choose a rating." />
+    <title id='Description'>The jqxRating control represents a widget that allows you to choose a rating. You can configure the rating item's size, image and the number of displayed items.</title>
+    <link rel="stylesheet" href="../../jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="../../jqwidgets/jqwidgets/styles/jqx.arctic.css" type="text/css" />
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Create jqxRating
+            $("#jqxRating").jqxRating({ width: 350, height: 35, theme: 'classic'});
+            $("#jqxRating").on('change', function (event) {
+                $("#rate").find('span').remove();
+                $("#rate").append('<span>' + event.value + '</span');
+            });
         });
     </script>
 
